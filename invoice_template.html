@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .invoice-box { max-width: 800px; margin: auto; padding: 30px; border: 1px solid #eee; box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); font-size: 16px; line-height: 24px; color: #555; }
+        .invoice-box table { width: 100%; line-height: inherit; text-align: left; }
+        .invoice-box table td { padding: 5px; vertical-align: top; }
+        .invoice-box table tr td:nth-child(2) { text-align: right; }
+        .invoice-box table tr.top table td { padding-bottom: 20px; }
+        .invoice-box table tr.top table td.title { font-size: 45px; line-height: 45px; color: #333; }
+        .invoice-box table tr.information table td { padding-bottom: 40px; }
+        .invoice-box table tr.heading td { background: #eee; border-bottom: 1px solid #ddd; font-weight: bold; }
+        .invoice-box table tr.details td { padding-bottom: 20px; }
+        .invoice-box table tr.item td { border-bottom: 1px solid #eee; }
+        .invoice-box table tr.item.last td { border-bottom: none; }
+        .invoice-box table tr.total td:nth-child(2) { border-top: 2px solid #eee; font-weight: bold; }
+        .signature { margin-top: 50px; }
+    </style>
+</head>
+<body>
+    <div class="invoice-box">
+        <table>
+            <tr class="top">
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td class="title">
+                                <img src="{{ logo }}" style="width:100%; max-width:300px;">
+                            </td>
+                            <td>
+                                Invoice #: {{ invoice_details.invoice_no }}<br>
+                                Created: {{ invoice_details.invoice_date }}<br>
+                                Order #: {{ order_details.order_no }}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr class="information">
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td>
+                                {{ seller_details.name }}<br>
+                                {{ seller_details.address }}<br>
+                                {{ seller_details.city }}, {{ seller_details.state }} {{ seller_details.pincode }}<br>
+                                PAN: {{ seller_details.pan_no }}<br>
+                                GST: {{ seller_details.gst_no }}
+                            </td>
+                            <td>
+                                Billing To:<br>
+                                {{ billing_details.name }}<br>
+                                {{ billing_details.address }}<br>
+                                {{ billing_details.city }}, {{ billing_details.state }} {{ billing_details.pincode }}<br>
+                                State Code: {{ billing_details.state_code }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Shipping To:<br>
+                                {{ shipping_details.name }}<br>
+                                {{ shipping_details.address }}<br>
+                                {{ shipping_details.city }}, {{ shipping_details.state }} {{ shipping_details.pincode }}<br>
+                                State Code: {{ shipping_details.state_code }}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr class="heading">
+                <td>
+                    Item
+                </td>
+                <td>
+                    Price
+                </td>
+            </tr>
+            {% for item in items %}
+            <tr class="item">
+                <td>
+                    {{ item.description }}
+                </td>
+                <td>
+                    ₹{{ item.net_amount }}
+                </td>
+            </tr>
+            {% endfor %}
+            <tr class="total">
+                <td></td>
+                <td>
+                   Total: ₹{{ total_amount }}
+                </td>
+            </tr>
+        </table>
+        <div class="signature">
+            For {{ seller_details.name }}:<br>
+            <img src="{{ signature }}" style="width:100px;"><br>
+            Authorised Signatory
+        </div>
+    </div>
+</body>
+</html>
