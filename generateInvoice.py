@@ -92,8 +92,8 @@ invoice_details = {
 }
 
 items = [
-    {"description": "Item 1", "unit_price": 100, "quantity": 2, "discount": 10, "tax_rate": 18},
-    {"description": "Item 2", "unit_price": 200, "quantity": 1, "discount": 20, "tax_rate": 18}
+    {"description": "Item 1", "unit_price": 100, "quantity": 2, "discount": 0, "tax_rate": 18},
+    {"description": "Item 2", "unit_price": 200, "quantity": 1, "discount": 0, "tax_rate": 18}
 ]
 
 logo = 'path/to/logo.png'
