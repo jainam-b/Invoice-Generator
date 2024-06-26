@@ -1,16 +1,3 @@
-To add an image of the invoice to your README file, you can follow these steps:
-
-1. **Prepare the Image:**
-   - Ensure you have an image of the generated invoice (`invoice.pdf`) that you want to showcase.
-
-2. **Store the Image:**
-   - Place the image (`invoice.png`, for example) in your project directory or a designated folder.
-
-3. **Update README with Image:**
-   - Use Markdown syntax to embed the image in your README file.
-
-Here's how you can modify your README to include the invoice image:
-
 ```markdown
 # Invoice Generator
 
@@ -91,8 +78,6 @@ Contributions are welcome! Please fork the repository and submit a Pull Request 
 
 This project is licensed under the MIT License. See the LICENSE file for details.
 ```
-
-### Explanation:
 
 - **Preview of Generated Invoice Section:** Added a new section titled "Preview of Generated Invoice" where the image of the invoice (`invoice.png`) is displayed using Markdown image syntax (`![Generated Invoice](path/to/invoice.png)`).
 - **Path to Image:** Replace `path/to/invoice.png` with the actual path where your invoice image (`invoice.png`) is located relative to your README file.
